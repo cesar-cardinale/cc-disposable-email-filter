@@ -4,7 +4,7 @@
     <displayName><![CDATA[Disposable Email Filter]]></displayName>
     <version><![CDATA[1.0.0]]></version>
     <description><![CDATA[Block customer registration with disposable email addresses and log attempts.]]></description>
-    <author><![CDATA[Cesar Cardinale]]></author>
+    <author><![CDATA[César CARDINALE]]></author>
     <tab><![CDATA[administration]]></tab>
     <is_configurable>1</is_configurable>
     <need_instance>0</need_instance>

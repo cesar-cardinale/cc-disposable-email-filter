@@ -2,8 +2,8 @@
 /**
  * PrestaShop module to block disposable email addresses
  *
- * @author    Cesar Cardinale
- * @copyright Copyright (c) 2024
+ * @author    Cesar CARDINALE www.cesarcardinale.fr
+ * @copyright Copyright (c) 2025
  * @license   MIT
  */
 
@@ -22,7 +22,7 @@ class Disposableemailfilter extends Module
         $this->name = 'disposableemailfilter';
         $this->tab = 'administration';
         $this->version = '1.0.0';
-        $this->author = 'Cesar Cardinale';
+        $this->author = 'César CARDINALE';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = ['min' => '9.0.0', 'max' => _PS_VERSION_];
         $this->bootstrap = true;
