@@ -13,7 +13,7 @@ if (!defined('_PS_VERSION_')) {
 
 class Ps_Disposable_Email_Filter extends Module
 {
-    const BLOCKLIST_URL = 'https://raw.githubusercontent.com/disposable-email-domains/disposable-email-domains/refs/heads/main/disposable_email_blocklist.conf';
+    const BLOCKLIST_URL = 'https://raw.githubusercontent.com/disposable-email-domains/disposable-email-domains/main/disposable_email_blocklist.conf';
     const BLOCKLIST_CACHE_FILE = 'blocklist_cache.txt';
     const BLOCKLIST_CACHE_DURATION = 86400; // 24 hours
 
@@ -40,8 +40,6 @@ class Ps_Disposable_Email_Filter extends Module
     public function install()
     {
         return parent::install()
-            && $this->registerHook('actionCustomerAccountAdd')
-            && $this->registerHook('actionValidateCustomerAddressForm')
             && $this->registerHook('actionObjectCustomerAddBefore')
             && $this->createTables()
             && Configuration::updateValue('PS_DEF_ENABLE', 1)
@@ -207,7 +205,8 @@ class Ps_Disposable_Email_Filter extends Module
      */
     public function getBlockedAttempts($limit = 100, $offset = 0)
     {
-        $sql = 'SELECT * FROM `' . _DB_PREFIX_ . 'disposable_email_log` 
+        $sql = 'SELECT `id_log`, `email`, `ip_address`, `date_add` 
+                FROM `' . _DB_PREFIX_ . 'disposable_email_log` 
                 ORDER BY `date_add` DESC 
                 LIMIT ' . (int)$offset . ', ' . (int)$limit;
 
@@ -467,30 +466,24 @@ if (!function_exists('human_time_diff')) {
         $diff = abs($to - $from);
 
         if ($diff < 60) {
-            return sprintf(_n('%s second', '%s seconds', $diff), $diff);
+            $unit = ($diff == 1) ? 'second' : 'seconds';
+            return sprintf('%s %s', $diff, $unit);
         }
 
         $mins = round($diff / 60);
         if ($mins < 60) {
-            return sprintf(_n('%s minute', '%s minutes', $mins), $mins);
+            $unit = ($mins == 1) ? 'minute' : 'minutes';
+            return sprintf('%s %s', $mins, $unit);
         }
 
         $hours = round($diff / 3600);
         if ($hours < 24) {
-            return sprintf(_n('%s hour', '%s hours', $hours), $hours);
+            $unit = ($hours == 1) ? 'hour' : 'hours';
+            return sprintf('%s %s', $hours, $unit);
         }
 
         $days = round($diff / 86400);
-        return sprintf(_n('%s day', '%s days', $days), $days);
-    }
-}
-
-/**
- * Polyfill for _n function if not available
- */
-if (!function_exists('_n')) {
-    function _n($singular, $plural, $number)
-    {
-        return $number == 1 ? $singular : $plural;
+        $unit = ($days == 1) ? 'day' : 'days';
+        return sprintf('%s %s', $days, $unit);
     }
 }
