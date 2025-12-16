@@ -192,6 +192,6 @@ This PrestaShop 9 module automatically blocks registrations with disposable emai
 ## 📞 Support
 
 Pour toute question / For any questions:
-- GitHub: https://github.com/cesar-cardinale/cc-disposable-email-filter
+- GitHub: https://github.com/cesar-cardinale/disposableemailfilter
 - Documentation: README.md
 - Installation: INSTALLATION.md

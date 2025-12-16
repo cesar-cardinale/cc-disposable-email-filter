@@ -5,132 +5,132 @@
       <trans-unit id="32af5becbe48303c44121f6dcf3a7852" approved="yes">
         <source>Disposable Email Filter</source>
         <target state="final">Filtre d'emails jetables</target>
-        <note>cc_disposable_email_filter.php:32</note>
+        <note>disposableemailfilter.php:32</note>
       </trans-unit>
       <trans-unit id="38b1fd3891384bf0636fb1cb20f45795" approved="yes">
         <source>Block customer registration with disposable email addresses and log attempts.</source>
         <target state="final">Bloquer l'inscription des clients avec des adresses email jetables et enregistrer les tentatives.</target>
-        <note>cc_disposable_email_filter.php:33</note>
+        <note>disposableemailfilter.php:33</note>
       </trans-unit>
       <trans-unit id="bb8956c67b82c7444a80c6b2433dd8b4" approved="yes">
         <source>Are you sure you want to uninstall this module?</source>
         <target state="final">Êtes-vous sûr de vouloir désinstaller ce module ?</target>
-        <note>cc_disposable_email_filter.php:34</note>
+        <note>disposableemailfilter.php:34</note>
       </trans-unit>
       <trans-unit id="28d29e1a92d7b7f0af234686be65be24" approved="yes">
         <source>Registration with disposable email addresses is not allowed.</source>
         <target state="final">L'inscription avec ce domaine d'adresse email n'est pas autorisée.</target>
-        <note>cc_disposable_email_filter.php:108</note>
+        <note>disposableemailfilter.php:108</note>
       </trans-unit>
       <trans-unit id="8dd2f915acf4ec98006d11c9a4b0945b" approved="yes">
         <source>Settings updated successfully.</source>
         <target state="final">Paramètres mis à jour avec succès.</target>
-        <note>cc_disposable_email_filter.php:254</note>
+        <note>disposableemailfilter.php:254</note>
       </trans-unit>
       <trans-unit id="3d04a7723730651ac6159e2e8152b440" approved="yes">
         <source>Cache cleared successfully.</source>
         <target state="final">Cache effacé avec succès.</target>
-        <note>cc_disposable_email_filter.php:260</note>
+        <note>disposableemailfilter.php:260</note>
       </trans-unit>
       <trans-unit id="79f59b42c4979248d84dd44781e95202" approved="yes">
         <source>Failed to clear cache.</source>
         <target state="final">Échec de l'effacement du cache.</target>
-        <note>cc_disposable_email_filter.php:262</note>
+        <note>disposableemailfilter.php:262</note>
       </trans-unit>
       <trans-unit id="f4f70727dc34561dfde1a3c529b6205c" approved="yes">
         <source>Settings</source>
         <target state="final">Paramètres</target>
-        <note>cc_disposable_email_filter.php:282</note>
+        <note>disposableemailfilter.php:282</note>
       </trans-unit>
       <trans-unit id="f3898aa79677067cd78054bee5ec0fb8" approved="yes">
         <source>Enable filter</source>
         <target state="final">Activer le filtre</target>
-        <note>cc_disposable_email_filter.php:288</note>
+        <note>disposableemailfilter.php:288</note>
       </trans-unit>
       <trans-unit id="9e7aa4571d6fd7f9cf181da66819c28b" approved="yes">
         <source>Enable or disable the disposable email filter.</source>
         <target state="final">Activer ou désactiver le filtre d'emails jetables.</target>
-        <note>cc_disposable_email_filter.php:291</note>
+        <note>disposableemailfilter.php:291</note>
       </trans-unit>
       <trans-unit id="00d23a76e43b46dae9ec7aa9dcbebb32" approved="yes">
         <source>Enabled</source>
         <target state="final">Activé</target>
-        <note>cc_disposable_email_filter.php:296</note>
+        <note>disposableemailfilter.php:296</note>
       </trans-unit>
       <trans-unit id="b9f5c797ebbf55adccdd8539a65a0241" approved="yes">
         <source>Disabled</source>
         <target state="final">Désactivé</target>
-        <note>cc_disposable_email_filter.php:301</note>
+        <note>disposableemailfilter.php:301</note>
       </trans-unit>
       <trans-unit id="67c28e5114f4c183333538d89e5363c4" approved="yes">
         <source>Auto-update blocklist</source>
         <target state="final">Mise à jour automatique de la liste</target>
-        <note>cc_disposable_email_filter.php:307</note>
+        <note>disposableemailfilter.php:307</note>
       </trans-unit>
       <trans-unit id="cdd8550dbfb23bc4d2a5412c1015d049" approved="yes">
         <source>Automatically update the blocklist daily.</source>
         <target state="final">Mettre à jour automatiquement la liste quotidiennement.</target>
-        <note>cc_disposable_email_filter.php:310</note>
+        <note>disposableemailfilter.php:310</note>
       </trans-unit>
       <trans-unit id="c9cc8cce247e49bae79f15173ce97354" approved="yes">
         <source>Save</source>
         <target state="final">Enregistrer</target>
-        <note>cc_disposable_email_filter.php:326</note>
+        <note>disposableemailfilter.php:326</note>
       </trans-unit>
       <trans-unit id="06f4f7bd90b1c8a0145d18ee55c265c4" approved="yes">
         <source>Clear Cache</source>
         <target state="final">Effacer le cache</target>
-        <note>cc_disposable_email_filter.php:332</note>
+        <note>disposableemailfilter.php:332</note>
       </trans-unit>
       <trans-unit id="639f11d3aa2f0eea2bda765e40dc605d" approved="yes">
         <source>Never updated</source>
         <target state="final">Jamais mis à jour</target>
-        <note>cc_disposable_email_filter.php:373</note>
+        <note>disposableemailfilter.php:373</note>
       </trans-unit>
       <trans-unit id="c33e404a441c6ba9648f88af3c68a1ca" approved="yes">
         <source>Statistics</source>
         <target state="final">Statistiques</target>
-        <note>cc_disposable_email_filter.php:381</note>
+        <note>disposableemailfilter.php:381</note>
       </trans-unit>
       <trans-unit id="45bfca7f01e52c21826651d55b201a94" approved="yes">
         <source>Total blocked attempts</source>
         <target state="final">Total des tentatives bloquées</target>
-        <note>cc_disposable_email_filter.php:388</note>
+        <note>disposableemailfilter.php:388</note>
       </trans-unit>
       <trans-unit id="8e9c2262812c2d8dc1aa7042fb06510c" approved="yes">
         <source>Domains in blocklist</source>
         <target state="final">Domaines dans la liste</target>
-        <note>cc_disposable_email_filter.php:394</note>
+        <note>disposableemailfilter.php:394</note>
       </trans-unit>
       <trans-unit id="b907964518a216fc52d62364f9299e7e" approved="yes">
         <source>Cache age</source>
         <target state="final">Âge du cache</target>
-        <note>cc_disposable_email_filter.php:400</note>
+        <note>disposableemailfilter.php:400</note>
       </trans-unit>
       <trans-unit id="8561afc2c55def26d0b4e74ab7460c09" approved="yes">
         <source>Recent Blocked Attempts</source>
         <target state="final">Tentatives bloquées récentes</target>
-        <note>cc_disposable_email_filter.php:420</note>
+        <note>disposableemailfilter.php:420</note>
       </trans-unit>
       <trans-unit id="ce8ae9da5b7cd6c3df2929543a9af92d" approved="yes">
         <source>Email</source>
         <target state="final">Email</target>
-        <note>cc_disposable_email_filter.php:426</note>
+        <note>disposableemailfilter.php:426</note>
       </trans-unit>
       <trans-unit id="5b8c99dad1893a85076709b2d3c2d2d0" approved="yes">
         <source>IP Address</source>
         <target state="final">Adresse IP</target>
-        <note>cc_disposable_email_filter.php:427</note>
+        <note>disposableemailfilter.php:427</note>
       </trans-unit>
       <trans-unit id="44749712dbec183e983dcd78a7736c41" approved="yes">
         <source>Date</source>
         <target state="final">Date</target>
-        <note>cc_disposable_email_filter.php:428</note>
+        <note>disposableemailfilter.php:428</note>
       </trans-unit>
       <trans-unit id="371d47d85c5bb3a5eaa7d8ae33af6663" approved="yes">
         <source>No blocked attempts yet.</source>
         <target state="final">Aucune tentative bloquée pour le moment.</target>
-        <note>cc_disposable_email_filter.php:437</note>
+        <note>disposableemailfilter.php:437</note>
       </trans-unit>
     </body>
   </file>
