@@ -14,7 +14,7 @@ A PrestaShop 9 module that blocks customer registration with disposable email ad
 ## Installation
 
 1. Download or clone this repository
-2. Copy the `ps_disposable_email_filter` folder to your PrestaShop `modules` directory
+2. Copy the `cc_disposable_email_filter` folder to your PrestaShop `modules` directory
 3. Go to your PrestaShop admin panel → Modules → Module Manager
 4. Search for "Disposable Email Filter"
 5. Click "Install"
@@ -67,4 +67,4 @@ Cesar Cardinale
 
 ## Support
 
-For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/cesar-cardinale/ps-disposable-email-filter).
+For issues, questions, or contributions, please visit the [GitHub repository](https://github.com/cesar-cardinale/cc-disposable-email-filter).

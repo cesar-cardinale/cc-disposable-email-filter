@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
-    <name>ps_disposable_email_filter</name>
+    <name>cc_disposable_email_filter</name>
     <displayName><![CDATA[Disposable Email Filter]]></displayName>
     <version><![CDATA[1.0.0]]></version>
     <description><![CDATA[Block customer registration with disposable email addresses and log attempts.]]></description>

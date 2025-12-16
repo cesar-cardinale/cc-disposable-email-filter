@@ -5,7 +5,7 @@
 ### Méthode 1: Installation via l'interface d'administration PrestaShop
 
 1. Téléchargez ou clonez ce dépôt
-2. Compressez le dossier `ps_disposable_email_filter` en fichier ZIP
+2. Compressez le dossier `cc_disposable_email_filter` en fichier ZIP
 3. Connectez-vous à votre panneau d'administration PrestaShop
 4. Allez dans **Modules → Module Manager**
 5. Cliquez sur **"Uploader un module"**
@@ -15,7 +15,7 @@
 ### Méthode 2: Installation manuelle
 
 1. Téléchargez ou clonez ce dépôt
-2. Copiez le dossier complet `ps_disposable_email_filter` dans le répertoire `modules` de votre installation PrestaShop
+2. Copiez le dossier complet `cc_disposable_email_filter` dans le répertoire `modules` de votre installation PrestaShop
 3. Allez dans **Modules → Module Manager**
 4. Recherchez "Disposable Email Filter"
 5. Cliquez sur **"Installer"**
@@ -120,4 +120,4 @@ Lors de la désinstallation :
 ## Support
 
 Pour toute question ou problème, créez une issue sur le dépôt GitHub :
-https://github.com/cesar-cardinale/ps-disposable-email-filter/issues
+https://github.com/cesar-cardinale/cc-disposable-email-filter/issues

@@ -11,7 +11,7 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-class Ps_Disposable_Email_Filter extends Module
+class Cc_Disposable_Email_Filter extends Module
 {
     const BLOCKLIST_URL = 'https://raw.githubusercontent.com/disposable-email-domains/disposable-email-domains/main/disposable_email_blocklist.conf';
     const BLOCKLIST_CACHE_FILE = 'blocklist_cache.txt';
@@ -19,7 +19,7 @@ class Ps_Disposable_Email_Filter extends Module
 
     public function __construct()
     {
-        $this->name = 'ps_disposable_email_filter';
+        $this->name = 'cc_disposable_email_filter';
         $this->tab = 'administration';
         $this->version = '1.0.0';
         $this->author = 'Cesar Cardinale';
@@ -42,8 +42,8 @@ class Ps_Disposable_Email_Filter extends Module
         return parent::install()
             && $this->registerHook('actionObjectCustomerAddBefore')
             && $this->createTables()
-            && Configuration::updateValue('PS_DEF_ENABLE', 1)
-            && Configuration::updateValue('PS_DEF_AUTO_UPDATE', 1);
+            && Configuration::updateValue('CC_DEF_ENABLE', 1)
+            && Configuration::updateValue('CC_DEF_AUTO_UPDATE', 1);
     }
 
     /**
@@ -53,8 +53,8 @@ class Ps_Disposable_Email_Filter extends Module
     {
         return parent::uninstall()
             && $this->deleteTables()
-            && Configuration::deleteByName('PS_DEF_ENABLE')
-            && Configuration::deleteByName('PS_DEF_AUTO_UPDATE');
+            && Configuration::deleteByName('CC_DEF_ENABLE')
+            && Configuration::deleteByName('CC_DEF_AUTO_UPDATE');
     }
 
     /**
@@ -90,7 +90,7 @@ class Ps_Disposable_Email_Filter extends Module
      */
     public function hookActionObjectCustomerAddBefore($params)
     {
-        if (!Configuration::get('PS_DEF_ENABLE')) {
+        if (!Configuration::get('CC_DEF_ENABLE')) {
             return true;
         }
 
@@ -244,8 +244,8 @@ class Ps_Disposable_Email_Filter extends Module
 
         // Process form submission
         if (Tools::isSubmit('submit' . $this->name)) {
-            Configuration::updateValue('PS_DEF_ENABLE', Tools::getValue('PS_DEF_ENABLE'));
-            Configuration::updateValue('PS_DEF_AUTO_UPDATE', Tools::getValue('PS_DEF_AUTO_UPDATE'));
+            Configuration::updateValue('CC_DEF_ENABLE', Tools::getValue('CC_DEF_ENABLE'));
+            Configuration::updateValue('CC_DEF_AUTO_UPDATE', Tools::getValue('CC_DEF_AUTO_UPDATE'));
             $output .= $this->displayConfirmation($this->l('Settings updated successfully.'));
         }
 
@@ -281,7 +281,7 @@ class Ps_Disposable_Email_Filter extends Module
                     [
                         'type' => 'switch',
                         'label' => $this->l('Enable filter'),
-                        'name' => 'PS_DEF_ENABLE',
+                        'name' => 'CC_DEF_ENABLE',
                         'is_bool' => true,
                         'desc' => $this->l('Enable or disable the disposable email filter.'),
                         'values' => [
@@ -300,7 +300,7 @@ class Ps_Disposable_Email_Filter extends Module
                     [
                         'type' => 'switch',
                         'label' => $this->l('Auto-update blocklist'),
-                        'name' => 'PS_DEF_AUTO_UPDATE',
+                        'name' => 'CC_DEF_AUTO_UPDATE',
                         'is_bool' => true,
                         'desc' => $this->l('Automatically update the blocklist daily.'),
                         'values' => [
@@ -347,8 +347,8 @@ class Ps_Disposable_Email_Filter extends Module
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->tpl_vars = [
             'fields_value' => [
-                'PS_DEF_ENABLE' => Configuration::get('PS_DEF_ENABLE'),
-                'PS_DEF_AUTO_UPDATE' => Configuration::get('PS_DEF_AUTO_UPDATE'),
+                'CC_DEF_ENABLE' => Configuration::get('CC_DEF_ENABLE'),
+                'CC_DEF_AUTO_UPDATE' => Configuration::get('CC_DEF_AUTO_UPDATE'),
             ],
             'languages' => $this->context->controller->getLanguages(),
             'id_language' => $this->context->language->id

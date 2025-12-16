@@ -37,4 +37,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Includes proper index.php security files
 - Provides translation files for internationalization
 
-[1.0.0]: https://github.com/cesar-cardinale/ps-disposable-email-filter/releases/tag/v1.0.0
+[1.0.0]: https://github.com/cesar-cardinale/cc-disposable-email-filter/releases/tag/v1.0.0
