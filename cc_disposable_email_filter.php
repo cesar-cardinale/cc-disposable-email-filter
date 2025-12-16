@@ -62,7 +62,7 @@ class Cc_Disposable_Email_Filter extends Module
      */
     private function createTables()
     {
-        $sql = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'disposable_email_log` (
+        $sql = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'cc_disposable_email_log` (
             `id_log` int(11) NOT NULL AUTO_INCREMENT,
             `email` varchar(255) NOT NULL,
             `ip_address` varchar(45) DEFAULT NULL,
@@ -81,7 +81,7 @@ class Cc_Disposable_Email_Filter extends Module
      */
     private function deleteTables()
     {
-        $sql = 'DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'disposable_email_log`';
+        $sql = 'DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'cc_disposable_email_log`';
         return Db::getInstance()->execute($sql);
     }
 
@@ -188,7 +188,7 @@ class Cc_Disposable_Email_Filter extends Module
         $ip = Tools::getRemoteAddr();
         $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
 
-        $sql = 'INSERT INTO `' . _DB_PREFIX_ . 'disposable_email_log` 
+        $sql = 'INSERT INTO `' . _DB_PREFIX_ . 'cc_disposable_email_log` 
                 (`email`, `ip_address`, `user_agent`, `date_add`) 
                 VALUES (
                     "' . pSQL($email) . '",
@@ -206,7 +206,7 @@ class Cc_Disposable_Email_Filter extends Module
     public function getBlockedAttempts($limit = 100, $offset = 0)
     {
         $sql = 'SELECT `id_log`, `email`, `ip_address`, `date_add` 
-                FROM `' . _DB_PREFIX_ . 'disposable_email_log` 
+                FROM `' . _DB_PREFIX_ . 'cc_disposable_email_log` 
                 ORDER BY `date_add` DESC 
                 LIMIT ' . (int)$offset . ', ' . (int)$limit;
 
@@ -218,7 +218,7 @@ class Cc_Disposable_Email_Filter extends Module
      */
     public function getTotalBlockedAttempts()
     {
-        $sql = 'SELECT COUNT(*) as total FROM `' . _DB_PREFIX_ . 'disposable_email_log`';
+        $sql = 'SELECT COUNT(*) as total FROM `' . _DB_PREFIX_ . 'cc_disposable_email_log`';
         $result = Db::getInstance()->getRow($sql);
         return isset($result['total']) ? (int)$result['total'] : 0;
     }

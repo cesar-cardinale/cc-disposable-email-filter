@@ -82,7 +82,7 @@ Cette liste contient plus de 4900 domaines d'emails jetables connus.
 
 ### Les logs ne s'affichent pas
 
-1. Vérifiez que la table `ps_disposable_email_log` existe dans votre base de données
+1. Vérifiez que la table `cc_disposable_email_log` existe dans votre base de données
 2. Réinstallez le module si nécessaire
 
 ### Message d'erreur lors de l'installation
@@ -93,10 +93,10 @@ Cette liste contient plus de 4900 domaines d'emails jetables connus.
 
 ## Base de données
 
-Le module crée une table `ps_disposable_email_log` avec la structure suivante :
+Le module crée une table `cc_disposable_email_log` avec la structure suivante :
 
 ```sql
-CREATE TABLE `ps_disposable_email_log` (
+CREATE TABLE `cc_disposable_email_log` (
   `id_log` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `ip_address` varchar(45) DEFAULT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE `ps_disposable_email_log` (
 ## Désinstallation
 
 Lors de la désinstallation :
-- La table `ps_disposable_email_log` est supprimée (tous les logs sont perdus)
+- La table `cc_disposable_email_log` est supprimée (tous les logs sont perdus)
 - Les configurations sont supprimées
 - Le cache est supprimé
 
