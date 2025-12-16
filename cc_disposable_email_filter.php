@@ -29,9 +29,9 @@ class Cc_Disposable_Email_Filter extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->l('Disposable Email Filter');
-        $this->description = $this->l('Block customer registration with disposable email addresses and log attempts.');
-        $this->confirmUninstall = $this->l('Are you sure you want to uninstall this module?');
+        $this->displayName = $this->trans('Disposable Email Filter', [], 'Modules.Ccdisposableemailfilter.Admin');
+        $this->description = $this->trans('Block customer registration with disposable email addresses and log attempts.', [], 'Modules.Ccdisposableemailfilter.Admin');
+        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', [], 'Modules.Ccdisposableemailfilter.Admin');
     }
 
     /**
@@ -105,9 +105,9 @@ class Cc_Disposable_Email_Filter extends Module
         if(!empty($email)){
             if ($this->isDisposableEmail($email)) {
                 $this->logBlockedAttempt($email);
-                Context::getContext()->controller->errors[] = $this->l('Registration with disposable email addresses is not allowed.', 'cc_disposable_email_filter_blocked');
+                Context::getContext()->controller->errors[] = $this->trans('Registration with disposable email addresses is not allowed.', [], 'Modules.Ccdisposableemailfilter.Admin');
                 
-                throw new PrestaShopException($this->l('Registration with disposable email addresses is not allowed.', 'cc_disposable_email_filter_blocked'));
+                throw new PrestaShopException($this->trans('Registration with disposable email addresses is not allowed.', [], 'Modules.Ccdisposableemailfilter.Admin'));
             }
         }
 
@@ -251,15 +251,15 @@ class Cc_Disposable_Email_Filter extends Module
         if (Tools::isSubmit('submit' . $this->name)) {
             Configuration::updateValue('CC_DEF_ENABLE', Tools::getValue('CC_DEF_ENABLE'));
             Configuration::updateValue('CC_DEF_AUTO_UPDATE', Tools::getValue('CC_DEF_AUTO_UPDATE'));
-            $output .= $this->displayConfirmation($this->l('Settings updated successfully.'));
+            $output .= $this->displayConfirmation($this->trans('Settings updated successfully.', [], 'Modules.Ccdisposableemailfilter.Admin'));
         }
 
         // Process cache clear
         if (Tools::isSubmit('clear_cache')) {
             if ($this->clearCache()) {
-                $output .= $this->displayConfirmation($this->l('Cache cleared successfully.'));
+                $output .= $this->displayConfirmation($this->trans('Cache cleared successfully.', [], 'Modules.Ccdisposableemailfilter.Admin'));
             } else {
-                $output .= $this->displayError($this->l('Failed to clear cache.'));
+                $output .= $this->displayError($this->trans('Failed to clear cache.', [], 'Modules.Ccdisposableemailfilter.Admin'));
             }
         }
 
@@ -279,57 +279,57 @@ class Cc_Disposable_Email_Filter extends Module
         $fields_form = [
             'form' => [
                 'legend' => [
-                    'title' => $this->l('Settings'),
+                    'title' => $this->trans('Settings', [], 'Modules.Ccdisposableemailfilter.Admin'),
                     'icon' => 'icon-cogs'
                 ],
                 'input' => [
                     [
                         'type' => 'switch',
-                        'label' => $this->l('Enable filter'),
+                        'label' => $this->trans('Enable filter', [], 'Modules.Ccdisposableemailfilter.Admin'),
                         'name' => 'CC_DEF_ENABLE',
                         'is_bool' => true,
-                        'desc' => $this->l('Enable or disable the disposable email filter.'),
+                        'desc' => $this->trans('Enable or disable the disposable email filter.', [], 'Modules.Ccdisposableemailfilter.Admin'),
                         'values' => [
                             [
                                 'id' => 'active_on',
                                 'value' => 1,
-                                'label' => $this->l('Enabled')
+                                'label' => $this->trans('Enabled', [], 'Modules.Ccdisposableemailfilter.Admin')
                             ],
                             [
                                 'id' => 'active_off',
                                 'value' => 0,
-                                'label' => $this->l('Disabled')
+                                'label' => $this->trans('Disabled', [], 'Modules.Ccdisposableemailfilter.Admin')
                             ]
                         ],
                     ],
                     [
                         'type' => 'switch',
-                        'label' => $this->l('Auto-update blocklist'),
+                        'label' => $this->trans('Auto-update blocklist', [], 'Modules.Ccdisposableemailfilter.Admin'),
                         'name' => 'CC_DEF_AUTO_UPDATE',
                         'is_bool' => true,
-                        'desc' => $this->l('Automatically update the blocklist daily.'),
+                        'desc' => $this->trans('Automatically update the blocklist daily.', [], 'Modules.Ccdisposableemailfilter.Admin'),
                         'values' => [
                             [
                                 'id' => 'update_on',
                                 'value' => 1,
-                                'label' => $this->l('Enabled')
+                                'label' => $this->trans('Enabled', [], 'Modules.Ccdisposableemailfilter.Admin')
                             ],
                             [
                                 'id' => 'update_off',
                                 'value' => 0,
-                                'label' => $this->l('Disabled')
+                                'label' => $this->trans('Disabled', [], 'Modules.Ccdisposableemailfilter.Admin')
                             ]
                         ],
                     ],
                 ],
                 'submit' => [
-                    'title' => $this->l('Save'),
+                    'title' => $this->trans('Save', [], 'Modules.Ccdisposableemailfilter.Admin'),
                     'class' => 'btn btn-default pull-right'
                 ],
                 'buttons' => [
                     [
                         'type' => 'submit',
-                        'title' => $this->l('Clear Cache'),
+                        'title' => $this->trans('Clear Cache', [], 'Modules.Ccdisposableemailfilter.Admin'),
                         'icon' => 'process-icon-refresh',
                         'name' => 'clear_cache',
                         'class' => 'btn btn-default'
@@ -370,7 +370,7 @@ class Cc_Disposable_Email_Filter extends Module
         $total = $this->getTotalBlockedAttempts();
         $cacheFile = $this->getLocalPath() . self::BLOCKLIST_CACHE_FILE;
         $cacheAge = file_exists($cacheFile) ? 
-            human_time_diff(filemtime($cacheFile), time()) : $this->l('Never updated');
+            human_time_diff(filemtime($cacheFile), time()) : $this->trans('Never updated', [], 'Modules.Ccdisposableemailfilter.Admin');
         
         $blocklist = $this->getBlocklist();
         $blocklistCount = count($blocklist);
@@ -378,26 +378,26 @@ class Cc_Disposable_Email_Filter extends Module
         $html = '
         <div class="panel">
             <div class="panel-heading">
-                <i class="icon-bar-chart"></i> ' . $this->l('Statistics') . '
+                <i class="icon-bar-chart"></i> ' . $this->trans('Statistics', [], 'Modules.Ccdisposableemailfilter.Admin') . '
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="well">
                             <h3>' . $total . '</h3>
-                            <p>' . $this->l('Total blocked attempts') . '</p>
+                            <p>' . $this->trans('Total blocked attempts', [], 'Modules.Ccdisposableemailfilter.Admin') . '</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="well">
                             <h3>' . $blocklistCount . '</h3>
-                            <p>' . $this->l('Domains in blocklist') . '</p>
+                            <p>' . $this->trans('Domains in blocklist', [], 'Modules.Ccdisposableemailfilter.Admin') . '</p>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="well">
                             <h3>' . $cacheAge . '</h3>
-                            <p>' . $this->l('Cache age') . '</p>
+                            <p>' . $this->trans('Cache age', [], 'Modules.Ccdisposableemailfilter.Admin') . '</p>
                         </div>
                     </div>
                 </div>
@@ -417,15 +417,15 @@ class Cc_Disposable_Email_Filter extends Module
         $html = '
         <div class="panel">
             <div class="panel-heading">
-                <i class="icon-list"></i> ' . $this->l('Recent Blocked Attempts') . '
+                <i class="icon-list"></i> ' . $this->trans('Recent Blocked Attempts', [], 'Modules.Ccdisposableemailfilter.Admin') . '
             </div>
             <div class="panel-body">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>' . $this->l('Email') . '</th>
-                            <th>' . $this->l('IP Address') . '</th>
-                            <th>' . $this->l('Date') . '</th>
+                            <th>' . $this->trans('Email', [], 'Modules.Ccdisposableemailfilter.Admin') . '</th>
+                            <th>' . $this->trans('IP Address', [], 'Modules.Ccdisposableemailfilter.Admin') . '</th>
+                            <th>' . $this->trans('Date', [], 'Modules.Ccdisposableemailfilter.Admin') . '</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -434,7 +434,7 @@ class Cc_Disposable_Email_Filter extends Module
             $html .= '
                         <tr>
                             <td colspan="3" class="text-center">' . 
-                                $this->l('No blocked attempts yet.') . 
+                                $this->trans('No blocked attempts yet.', [], 'Modules.Ccdisposableemailfilter.Admin') . 
                             '</td>
                         </tr>';
         } else {
