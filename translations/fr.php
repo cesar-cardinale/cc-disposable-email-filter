@@ -28,3 +28,4 @@ $_MODULE['<{cc_disposable_email_filter}prestashop>cc_disposable_email_filter_no_
 $_MODULE['<{cc_disposable_email_filter}prestashop>cc_disposable_email_filter_enabled'] = 'Activé';
 $_MODULE['<{cc_disposable_email_filter}prestashop>cc_disposable_email_filter_disabled'] = 'Désactivé';
 $_MODULE['<{cc_disposable_email_filter}prestashop>cc_disposable_email_filter_never_updated'] = 'Jamais mis à jour';
+$_MODULE['<{cc_disposable_email_filter}prestashop>cc_disposable_email_filter_blocked'] = "L'inscription avec ce domaine d'adresse email n'est pas autorisée.";
