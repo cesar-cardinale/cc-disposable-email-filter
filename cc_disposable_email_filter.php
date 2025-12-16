@@ -40,7 +40,7 @@ class Cc_Disposable_Email_Filter extends Module
     public function install()
     {
         return parent::install()
-            && $this->registerHook('actionObjectCustomerAddBefore')
+            && $this->registerHook('actionSubmitAccountBefore')
             && $this->createTables()
             && Configuration::updateValue('CC_DEF_ENABLE', 1)
             && Configuration::updateValue('CC_DEF_AUTO_UPDATE', 1);
@@ -88,22 +88,27 @@ class Cc_Disposable_Email_Filter extends Module
     /**
      * Hook before customer creation
      */
-    public function hookActionObjectCustomerAddBefore($params)
+    public function hookActionSubmitAccountBefore($params)
     {
         if (!Configuration::get('CC_DEF_ENABLE')) {
             return true;
         }
 
-        $customer = $params['object'];
-        $email = $customer->email;
+        if (isset($params['newCustomer']) && isset($params['newCustomer']['email'])) {
+            $email = $params['newCustomer']['email'];
+        }
 
-        if ($this->isDisposableEmail($email)) {
-            $this->logBlockedAttempt($email);
-            
-            // Prevent customer creation by throwing an exception
-            throw new PrestaShopException(
-                $this->l('Registration with disposable email addresses is not allowed.')
-            );
+        if(empty($email)) {
+            $email = Tools::getValue('email');
+        }
+
+        if(!empty($email)){
+            if ($this->isDisposableEmail($email)) {
+                $this->logBlockedAttempt($email);
+                Context::getContext()->controller->errors[] = $this->l('Registration with disposable email addresses is not allowed.', 'cc_disposable_email_filter_blocked');
+                
+                throw new PrestaShopException($this->l('Registration with disposable email addresses is not allowed.', 'cc_disposable_email_filter_blocked'));
+            }
         }
 
         return true;
